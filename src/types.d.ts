@@ -1,4 +1,4 @@
-interface FormStates {
+interface formState {
   step: number;
   fullName: string;
   displayName: string;
@@ -7,16 +7,28 @@ interface FormStates {
   planToUse: string;
 }
 
-interface InputBoxTypes {
+type inputField = {
   name: string;
-  type?: string;
-  value: string;
-  handleChange: React.Dispatch<any>;
   label?: string;
-  required: boolean;
+  required?: boolean;
+  type?: string;
 }
 
-interface ButtonType {
+type ctaBtn = {
   text: string;
-  action: React.Dispatch<any>;
+  action?: React.Dispatch<any>;
+}
+
+interface InputBoxTypes extends inputField {
+  value: string;
+  handleChange: React.Dispatch<any>;
+}
+
+interface onboardingQuestion {
+  heading: string;
+  note: string;
+  inputs: inputField[];
+  cta: ctaBtn;
+  formState: formState;
+  handleChange: React.Dispatch<any>;
 }

@@ -10,11 +10,12 @@ const InputBox: React.FC<InputBoxTypes> = ({ name, type = "text", value, handleC
                 value={value}
                 onChange={handleChange}
                 required={required}
+                className="common-box"
             />
         </label>
     )
 }
 
-const Button: React.FC<ButtonType> = ({ text, action }) => <button className="form-btn" onClick={action}>{text}</button>
+const Button: React.FC<ctaBtn> = ({ text, action }) => <button className="form-btn common-box" onClick={action}>{text}</button>
 
 export { InputBox, Button };
