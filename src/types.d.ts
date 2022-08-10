@@ -1,10 +1,5 @@
-interface formState {
-  step: number;
-  fullName: string;
-  displayName: string;
-  workspaceName: string;
-  workspaceUrl: string;
-  planToUse: string;
+interface formStateType {
+  [key: string]: string;
 }
 
 type inputField = {
@@ -12,12 +7,12 @@ type inputField = {
   label?: string;
   required?: boolean;
   type?: string;
-}
+};
 
 type ctaBtn = {
   text: string;
   action?: React.Dispatch<any>;
-}
+};
 
 interface InputBoxTypes extends inputField {
   value: string;
@@ -25,10 +20,9 @@ interface InputBoxTypes extends inputField {
 }
 
 interface onboardingQuestion {
+  type: string;
   heading: string;
   note: string;
   inputs: inputField[];
-  cta: ctaBtn;
-  formState: formState;
-  handleChange: React.Dispatch<any>;
+  ctaText: string;
 }

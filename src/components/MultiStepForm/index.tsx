@@ -1,12 +1,13 @@
 import { useState } from "react";
-import First from "./First";
 import { formData } from "./formData";
+import InputScreen from "./InputScreen";
+import SelectionScreen from "./SelectionScreen";
 
 
 const MultiStepForm = () => {
-    const [formState, setFormState] = useState<formState>(
+    const [formState, setFormState] = useState<formStateType>(
         {
-            step: 0,
+            step: '0',
             fullName: '',
             displayName: '',
             workspaceName: '',
@@ -16,35 +17,21 @@ const MultiStepForm = () => {
     ),
 
         renderForm = () => {
-            switch (formState.step) {
-                case 0:
-                    return;
-                case 1:
-                    return;// <Second />
-                case 2:
-                    return;//<Third />
-                case 3:
-                    return;//<Success />
+            switch (formData[parseInt(formState.step)].type) {
+                case 'input':
+                    return <InputScreen {...formData[0]} formState={formState} />
+                case 'selector':
+                    return <SelectionScreen />
                 default:
                     <p>Something went wrong.</p>
             }
         };
 
-    const handleChange = (e: any) => {
-        setFormState({ ...formState, [e.target.name]: e.target.value });
-    }
-
-    setTimeout(() => {
-        console.log(formState);
-    }, 5000);
-
-
-
     return (
         <div>
             <h1>MultiStepForm</h1>
             {
-                formData.map((form: any, i: number) => <First {...form} formState={formState} handleChange={handleChange} />)
+                renderForm()
             }
         </div>
     )
