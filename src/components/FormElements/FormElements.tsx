@@ -1,6 +1,6 @@
 import "./FormElements.scss";
 
-const InputBox: React.FC<InputBoxTypes> = ({ name, type = "text", value, handleChange, label, required = false }) => {
+const InputBox: React.FC<InputBoxType> = ({ name, type = "text", value, handleChange, label, required = false }) => {
     return (
         <label className="flex flex-col">
             {label && label}
@@ -18,4 +18,12 @@ const InputBox: React.FC<InputBoxTypes> = ({ name, type = "text", value, handleC
 
 const Button: React.FC<ctaBtn> = ({ text, action }) => <button className="form-btn common-box" onClick={action}>{text}</button>
 
-export { InputBox, Button };
+const OptionBox: React.FC<OptionBoxType> = ({ logo, name, description, stateKey }) => {
+    return <div className="option-box">
+        <img src={logo} alt="" />
+        <h5>{name}</h5>
+        <p>{description}</p>
+    </div>
+}
+
+export { InputBox, Button, OptionBox };

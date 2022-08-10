@@ -6,8 +6,8 @@ const InputScreen: React.FC<InputScreenProps> = ({ heading, note, inputs, ctaTex
       <h1>{heading}</h1>
       {note && <p>{note}</p>}
       {
-        inputs.map((inputData: inputField) => {
-          return <InputBox key={`input-${inputData.name}`} {...inputData} value={formState[inputData.name]} handleChange={()=>{}} />
+        inputs?.map((inputData: inputField) => {
+          return <InputBox key={`input-${inputData.name}`} {...inputData} value={formState[inputData.name]} handleChange={() => { }} />
         })
       }
 

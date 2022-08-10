@@ -7,7 +7,7 @@ import SelectionScreen from "./SelectionScreen";
 const MultiStepForm = () => {
     const [formState, setFormState] = useState<formStateType>(
         {
-            step: '0',
+            step: '2',
             fullName: '',
             displayName: '',
             workspaceName: '',
@@ -19,9 +19,9 @@ const MultiStepForm = () => {
         renderForm = () => {
             switch (formData[parseInt(formState.step)].type) {
                 case 'input':
-                    return <InputScreen {...formData[0]} formState={formState} />
+                    return <InputScreen {...formData[parseInt(formState.step)]} formState={formState} />
                 case 'selector':
-                    return <SelectionScreen />
+                    return <SelectionScreen {...formData[parseInt(formState.step)]} />
                 default:
                     <p>Something went wrong.</p>
             }
