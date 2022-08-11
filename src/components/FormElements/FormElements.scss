@@ -1,30 +1,31 @@
-@import '../../index.scss';
+@import "../../index.scss";
 
 .common-box {
-	height: 40px;
-	width: 325px;
-	margin: 5px 0;
-	padding: 10px;
-	border-radius: 5px;
-	font-weight: regular;
-	font-size: 13px;
+  height: 40px;
+  width: 325px;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: regular;
+  font-size: 13px;
 }
 
 label {
-	@include flexCenter(start, start, column);
-	color: $black;
-	margin-bottom: 15px;
-	font-weight: 500;
-	font-size: 13px;
-	input {
-		border: 1px solid $border;
-		color: $secondary_1;
-	}
+  @include flexCenter(start, start, column);
+  color: $black;
+  margin-top: 15px;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: capitalize;
+  input {
+    border: 1px solid $border;
+    color: $secondary_1;
+  }
 }
 
 .form-btn {
-	background-color: $primary;
-	color: white;
-	text-transform: capitalize;
-	cursor: pointer;
+  background-color: $primary;
+  color: white;
+  text-transform: capitalize;
+  cursor: pointer;
 }

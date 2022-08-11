@@ -1,9 +1,9 @@
-import { formData } from "./formData";
 import InputScreen from "./InputScreen";
 import SelectionScreen from "./SelectionScreen";
 import { useAppSelector } from "../../redux/customHooks";
+import "./MultiStepForm.scss";
 
-const MultiStepForm = () => {
+const MultiStepForm: React.FC<MultiStepFormProps> = ({ formData }) => {
     const multiStepForm = useAppSelector(state => state.multiStepForm),
         renderForm = () => {
             switch (formData[parseInt(multiStepForm.step)].type) {
@@ -17,7 +17,7 @@ const MultiStepForm = () => {
         };
 
     return (
-        <div>
+        <div className="multi-step-form">
             <h1>MultiStepForm</h1>
             {
                 renderForm()
@@ -27,3 +27,8 @@ const MultiStepForm = () => {
 }
 
 export default MultiStepForm;
+
+
+interface MultiStepFormProps {
+    formData: onboardingQuestion[]
+}

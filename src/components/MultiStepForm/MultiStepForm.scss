@@ -1,0 +1,14 @@
+@import "../../index.scss";
+
+.multi-step-form {
+  h2::first-letter,
+  p::first-letter {
+    text-transform: capitalize;
+  }
+  p {
+    font-size: 12.5px;
+    margin: 12px 0 25px;
+    font-weight: 500;
+    color: $secondary;
+  }
+}

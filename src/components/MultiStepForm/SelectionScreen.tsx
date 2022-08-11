@@ -1,9 +1,13 @@
 import { OptionBox, Button } from "..";
+import { formScreenHandler } from "../../redux/multiStepFormSlice";
+import { useAppDispatch } from "../../redux/customHooks";
 
 const SelectionScreen: React.FC<onboardingQuestion> = ({ heading, stateKey = '', note, options, ctaText }) => {
+    const dispatch = useAppDispatch();
+
     return (
-        <div>
-            <h1>{heading}</h1>
+        <div className="flex-col-center">
+            <h2>{heading}</h2>
             {note && <p>{note}</p>}
             {
                 options?.map((optionData: selectOption) => {
@@ -11,7 +15,7 @@ const SelectionScreen: React.FC<onboardingQuestion> = ({ heading, stateKey = '',
                 })
             }
 
-            <Button text={ctaText} action={() => { }} />
+            <Button text={ctaText} action={() => dispatch(formScreenHandler())} />
         </div>
     )
 }

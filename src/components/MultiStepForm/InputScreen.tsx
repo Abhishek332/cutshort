@@ -11,15 +11,14 @@ const InputScreen: React.FC<onboardingQuestion> = ({ heading, note, inputs, ctaT
     };
 
   return (
-    <div>
-      <h1>{heading}</h1>
+    <div className="flex-col-center">
+      <h2>{heading}</h2>
       {note && <p>{note}</p>}
       {
         inputs?.map((inputData: inputField) => {
           return <InputBox key={`input-${inputData.name}`} {...inputData} value={multiStepForm[inputData.name]} handleChange={handleChange} />
         })
       }
-
       <Button text={ctaText} action={() => dispatch(formScreenHandler())} />
     </div>
   )
