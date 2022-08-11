@@ -1,27 +1,16 @@
-import { useState } from "react";
 import { formData } from "./formData";
 import InputScreen from "./InputScreen";
 import SelectionScreen from "./SelectionScreen";
-
+import { useAppSelector } from "../../redux/customHooks";
 
 const MultiStepForm = () => {
-    const [formState, setFormState] = useState<formStateType>(
-        {
-            step: '2',
-            fullName: '',
-            displayName: '',
-            workspaceName: '',
-            workspaceUrl: '',
-            planToUse: ''
-        }
-    ),
-
+    const multiStepForm = useAppSelector(state => state.multiStepForm),
         renderForm = () => {
-            switch (formData[parseInt(formState.step)].type) {
+            switch (formData[parseInt(multiStepForm.step)].type) {
                 case 'input':
-                    return <InputScreen {...formData[parseInt(formState.step)]} formState={formState} />
+                    return <InputScreen {...formData[parseInt(multiStepForm.step)]} />
                 case 'selector':
-                    return <SelectionScreen {...formData[parseInt(formState.step)]} />
+                    return <SelectionScreen {...formData[parseInt(multiStepForm.step)]} />
                 default:
                     <p>Something went wrong.</p>
             }

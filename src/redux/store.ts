@@ -1,7 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
+import multiStepFormReducer from './multiStepFormSlice';
 
 export const store = configureStore({
-  reducer: {},
+	reducer: {
+		multiStepForm: multiStepFormReducer,
+	},
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

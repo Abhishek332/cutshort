@@ -10,7 +10,7 @@ export const formData: onboardingQuestion[] = [
         required: true,
       },
       {
-        name: "displaylName",
+        name: "displayName",
         label: "Display name",
         required: true,
       },
