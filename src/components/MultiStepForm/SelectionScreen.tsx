@@ -9,12 +9,13 @@ const SelectionScreen: React.FC<onboardingQuestion> = ({ heading, stateKey = '',
         <div className="flex-col-center">
             <h2>{heading}</h2>
             {note && <p>{note}</p>}
-            {
-                options?.map((optionData: selectOption) => {
-                    return <OptionBox key={`option-${optionData.name}`} {...optionData} stateKey={stateKey} />
-                })
-            }
-
+            <div className="container option-container">
+                {
+                    options?.map((optionData: selectOption) => {
+                        return <OptionBox key={`option-${optionData.name}`} {...optionData} stateKey={stateKey} />
+                    })
+                }
+            </div>
             <Button text={ctaText} action={() => dispatch(formScreenHandler())} />
         </div>
     )

@@ -7,8 +7,15 @@
   }
   p {
     font-size: 12.5px;
-    margin: 12px 0 25px;
+    margin: 12px 0;
     font-weight: 500;
     color: $secondary;
+  }
+
+  .container {
+    margin: 15px;
+  }
+  .option-container {
+    @include flexCenter(center, center, row);
   }
 }

@@ -13,7 +13,7 @@
 label {
   @include flexCenter(start, start, column);
   color: $black;
-  margin-top: 15px;
+  margin-top: 12px;
   font-weight: 500;
   font-size: 12px;
   text-transform: capitalize;
@@ -28,4 +28,19 @@ label {
   color: white;
   text-transform: capitalize;
   cursor: pointer;
+}
+
+.option-box {
+  width: 150px;
+  aspect-ratio: 1/1;
+  border-radius: 4px;
+  padding: 15px;
+  border: 1px solid $border;
+  cursor: pointer;
+  margin: 0 12.5px;
+  @include flexCenter(space-between, start, column);
+  h5::first-letter,
+  p::first-letter {
+    text-transform: capitalize;
+  }
 }
