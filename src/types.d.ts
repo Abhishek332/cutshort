@@ -11,7 +11,7 @@ type inputField = {
 
 type selectOption = {
   logo: string;
-  name: string;
+  heading: string;
   description: string;
 };
 
@@ -27,6 +27,7 @@ interface InputBoxType extends inputField {
 
 interface OptionBoxType extends selectOption {
   stateKey: string;
+  selected: boolean;
 }
 
 interface onboardingQuestion {

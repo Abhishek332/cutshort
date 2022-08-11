@@ -1,18 +1,26 @@
 import { OptionBox, Button } from "..";
 import { formScreenHandler } from "../../redux/multiStepFormSlice";
-import { useAppDispatch } from "../../redux/customHooks";
+import { useAppDispatch, useAppSelector } from "../../redux/customHooks";
 
 const SelectionScreen: React.FC<onboardingQuestion> = ({ heading, stateKey = '', note, options, ctaText }) => {
-    const dispatch = useAppDispatch();
+    const dispatch = useAppDispatch(),
+        multiStepForm = useAppSelector(state => state.multiStepForm);
 
     return (
         <div className="flex-col-center">
-            <h2>{heading}</h2>
-            {note && <p>{note}</p>}
-            <div className="container option-container">
+            <header>
+                <h2>{heading}</h2>
+                {note && <p>{note}</p>}
+            </header>
+            <div className="options-container">
                 {
                     options?.map((optionData: selectOption) => {
-                        return <OptionBox key={`option-${optionData.name}`} {...optionData} stateKey={stateKey} />
+                        return <OptionBox
+                            {...optionData}
+                            key={`option-${optionData.heading}`}
+                            stateKey={stateKey}
+                            selected={multiStepForm[stateKey].toLowerCase() === optionData.heading.toLowerCase()}
+                        />
                     })
                 }
             </div>

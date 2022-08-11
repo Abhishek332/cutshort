@@ -1,13 +1,13 @@
 @import "../../index.scss";
 
 .common-box {
-  height: 40px;
-  width: 325px;
+  height: 35px;
+  width: 300px;
   margin: 5px 0;
   padding: 10px;
   border-radius: 5px;
   font-weight: regular;
-  font-size: 13px;
+  font-size: 11px;
 }
 
 label {
@@ -15,7 +15,7 @@ label {
   color: $black;
   margin-top: 12px;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 11px;
   text-transform: capitalize;
   input {
     border: 1px solid $border;
@@ -31,16 +31,18 @@ label {
 }
 
 .option-box {
-  width: 150px;
+  width: 140px;
   aspect-ratio: 1/1;
   border-radius: 4px;
   padding: 15px;
-  border: 1px solid $border;
   cursor: pointer;
   margin: 0 12.5px;
   @include flexCenter(space-between, start, column);
-  h5::first-letter,
-  p::first-letter {
+  & > *::first-letter {
     text-transform: capitalize;
+  }
+  p {
+    font-size: 11px;
+    color: $secondary;
   }
 }

@@ -43,12 +43,12 @@ export const formData: onboardingQuestion[] = [
     options: [
       {
         logo: "person.png",
-        name: "for mysellf",
+        heading: "for myself",
         description: "Write better. Think more clearly. Stay organized.",
       },
       {
         logo: "people.png",
-        name: "with my team",
+        heading: "with my team",
         description: "Wikis, docs, tasks & projects, all in one place.",
       },
     ],

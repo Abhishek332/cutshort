@@ -1,4 +1,6 @@
 import "./FormElements.scss";
+import { useAppDispatch } from "../../redux/customHooks";
+import { formValueUpdater } from "../../redux/multiStepFormSlice";
 
 const InputBox: React.FC<InputBoxType> = ({ name, type = "text", value, handleChange, label, required = false }) => {
     return (
@@ -18,10 +20,13 @@ const InputBox: React.FC<InputBoxType> = ({ name, type = "text", value, handleCh
 
 const Button: React.FC<ctaBtn> = ({ text, action }) => <button className="form-btn common-box" onClick={action}>{text}</button>
 
-const OptionBox: React.FC<OptionBoxType> = ({ logo, name, description, stateKey }) => {
-    return <div className="option-box">
+const OptionBox: React.FC<OptionBoxType> = ({ logo, heading, description, stateKey, selected }) => {
+    const dispatch = useAppDispatch(),
+        handleClick = () => dispatch(formValueUpdater({ name: stateKey, value: heading }));
+
+    return <div className="option-box" onClick={handleClick} style={selected ? { border: '1px solid #664de5' } : { border: '1px solid #8b97b1' }}>
         <img src={logo} alt="" />
-        <h5>{name}</h5>
+        <h5>{heading}</h5>
         <p>{description}</p>
     </div>
 }
