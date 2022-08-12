@@ -29,7 +29,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ formData }) => {
                         <div className="bar" >
                             <div style={
                                 i.toString() < multiStepForm.step ? { width: '100%' }
-                                    : i.toString() === multiStepForm.step ? { transition: '0.3s', width: '100%' } : { width: '0%' }}></div>
+                                    : i.toString() === multiStepForm.step ? { transition: '0.3s', width: '50%' } : { width: '0%' }}></div>
                         </div>
                     </div>)
                 }
