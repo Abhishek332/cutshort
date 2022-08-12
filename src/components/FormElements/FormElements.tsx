@@ -2,18 +2,23 @@ import "./FormElements.scss";
 import { useAppDispatch } from "../../redux/customHooks";
 import { formValueUpdater } from "../../redux/multiStepFormSlice";
 
-const InputBox: React.FC<InputBoxType> = ({ name, type = "text", value, handleChange, label, required = false }) => {
+const InputBox: React.FC<InputBoxType> = ({ name, type = "text", value, handleChange, label, example, required = false }) => {
     return (
         <label className="flex flex-col">
-            {label && label} {required && '*'}
-            <input
-                type={type}
-                name={name}
-                value={value}
-                onChange={handleChange}
-                required={required}
-                className="common-box"
-            />
+            <span>
+                {label && label}{' '}
+                {!required && <span style={{ color: '#c3c8d2' }}>(optional)</span>}
+            </span>
+            <div className="input-box common-box">
+                {example && <div className="example">{example}</div>}
+                <input
+                    type={type}
+                    name={name}
+                    value={value}
+                    onChange={handleChange}
+                    required={required}
+                />
+            </div>
         </label>
     )
 }

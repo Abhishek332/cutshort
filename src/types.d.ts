@@ -6,6 +6,7 @@ type inputField = {
   name: string;
   label?: string;
   required?: boolean;
+  example?: string;
   type?: string;
 };
 

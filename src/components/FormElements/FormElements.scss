@@ -1,48 +1,62 @@
-@import "../../index.scss";
+@import '../../index.scss';
 
 .common-box {
-  height: 35px;
-  width: 300px;
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 5px;
-  font-weight: regular;
-  font-size: 11px;
+	height: 35px;
+	width: 300px;
+	margin: 5px 0;
+	border-radius: 5px;
+	font-weight: regular;
+	font-size: 11px;
 }
 
 label {
-  @include flexCenter(start, start, column);
-  color: $black;
-  margin-top: 12px;
-  font-weight: 500;
-  font-size: 11px;
-  text-transform: capitalize;
-  input {
-    border: 1px solid $border;
-    color: $secondary_1;
-  }
+	@include flexCenter(start, start, column);
+	color: $black;
+	margin-top: 12px;
+	font-weight: 500;
+	font-size: 11px;
+	text-transform: capitalize;
+	.input-box {
+		border: 1px solid $border;
+		@include flexCenter(center, center, row);
+		& > * {
+			padding: 8px;
+			font-size: 11px;
+			color: $secondary_1;
+			font-weight: 500;
+			height: 100%;
+		}
+		.example {
+			background-color: $border;
+			text-transform: lowercase;
+		}
+		input {
+			border: 1px solid $border;
+			width: 100%;
+		}
+	}
 }
 
 .form-btn {
-  background-color: $primary;
-  color: white;
-  text-transform: capitalize;
-  cursor: pointer;
+	background-color: $primary;
+	color: white;
+	text-transform: capitalize;
+	cursor: pointer;
 }
 
 .option-box {
-  width: 140px;
-  aspect-ratio: 1/1;
-  border-radius: 4px;
-  padding: 15px;
-  cursor: pointer;
-  margin: 0 12.5px;
-  @include flexCenter(space-between, start, column);
-  & > *::first-letter {
-    text-transform: capitalize;
-  }
-  p {
-    font-size: 11px;
-    color: $secondary;
-  }
+	width: 140px;
+	aspect-ratio: 1/1;
+	border-radius: 4px;
+	padding: 15px;
+	cursor: pointer;
+	margin: 0 12.5px;
+	@include flexCenter(space-between, start, column);
+	& > *::first-letter {
+		text-transform: capitalize;
+	}
+	p {
+		font-size: 11px;
+		color: $secondary;
+	}
 }

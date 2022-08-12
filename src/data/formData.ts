@@ -30,7 +30,7 @@ export const formData: onboardingQuestion[] = [
       {
         name: "workspaceUrl",
         label: "workspace url",
-        required: true,
+        example: 'www.eden.com/',
       },
     ],
     ctaText: "create workspace",
