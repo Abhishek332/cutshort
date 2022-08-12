@@ -1,46 +1,90 @@
-# Getting Started with Create React App
+* This is a Multi Step Form build in React.
+* It have feature to automatic update based on inputData.
+* You just have to go in src/data/formData.ts to add any new screen in it.
+* It have two types of screens 
+            i) InputTypeScreen
+            ii) SelectTypeScreen
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* For Input Screen you have to add data in this structure -
+            {
+                type: string;
+                heading: string;
+                note: string; (optional)
+                ctaText: string;
+                inputs : Array({
+                    name: string; (This name should be same as you want in Redux state)
+                    label: string; (optional)
+                    required : boolean; (optional)
+                    type : string; (optional, by default it take text type)
+                })
+            }
 
-## Available Scripts
+* For Select Screen you have to add data in this structure -
+            {
+                type: string;
+                heading: string;
+                note: string; (optional)
+                ctaText: string;
+                options : Array({
+                    logo: string;
+                    heading: string;
+                    description: string;
+                })
+                stateKey : string; (This stateKey should be same as you want in Redux state)
+            }
 
-In the project directory, you can run:
+* Now go in src/redux/multiStepFormSlice.ts and add properties in intialState object.
 
-### `npm start`
+=================================================================================================
+note : For type Input screen 'name' field will be add as property in Redux State.
+For type Select screen 'stateKey' field will be add as property in Redux State.
+=================================================================================================
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Example of Data - 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+[
+    {
+    type: "input",
+    heading: "let's set up a home for all your work",
+    note: "you can always create another workspace later.",
+    inputs: [
+      {
+        name: "workspaceName",
+        label: "workspace Name",
+        required: true,
+      },
+      {
+        name: "workspaceUrl",
+        label: "workspace url",
+        required: true,
+      },
+    ],
+    ctaText: "create workspace",
+  },
+  {
+    type: "selector",
+    stateKey: "planToUse",
+    heading: "How are you planning to use Eden?",
+    note: "we'll streamline your setup experience accordingly.",
+    options: [
+      {
+        logo: "person.png",
+        heading: "for myself",
+        description: "Write better. Think more clearly. Stay organized.",
+      },
+      {
+        logo: "people.png",
+        heading: "with my team",
+        description: "Wikis, docs, tasks & projects, all in one place.",
+      },
+    ],
+    ctaText: "create workspace",
+  },
+]
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Redux intial State - 
+{
+ workspaceName : '',
+ workspaceUrl : '',
+ planToUse : ''   
+}

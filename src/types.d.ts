@@ -33,7 +33,7 @@ interface OptionBoxType extends selectOption {
 interface onboardingQuestion {
   type: string;
   heading: string;
-  note: string;
+  note?: string;
   ctaText: string;
   inputs?: inputField[];
   stateKey?: string;
