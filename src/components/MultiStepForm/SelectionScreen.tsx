@@ -4,7 +4,12 @@ import { useAppDispatch, useAppSelector } from "../../redux/customHooks";
 
 const SelectionScreen: React.FC<onboardingQuestion> = ({ heading, stateKey = '', note, options, ctaText }) => {
     const dispatch = useAppDispatch(),
-        multiStepForm = useAppSelector(state => state.multiStepForm);
+        multiStepForm = useAppSelector(state => state.multiStepForm),
+        handleSubmit = () => {
+            if (!multiStepForm[stateKey]) { showError(); return; }
+            dispatch(formScreenHandler());
+        },
+        showError = () => alert("Select one option please");
 
     return (
         <div className="flex-col-center">
@@ -24,7 +29,7 @@ const SelectionScreen: React.FC<onboardingQuestion> = ({ heading, stateKey = '',
                     })
                 }
             </div>
-            <Button text={ctaText} action={() => dispatch(formScreenHandler())} />
+            <Button text={ctaText} action={handleSubmit} />
         </div>
     )
 }

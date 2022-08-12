@@ -8,7 +8,20 @@ const InputScreen: React.FC<onboardingQuestion> = ({ heading, note, inputs, ctaT
     handleChange = (e: any) => {
       const { name, value } = e.target;
       dispatch(formValueUpdater({ name, value }));
-    };
+    },
+    handleSubmit = () => {
+      let checkEmpty = true;
+      inputs?.forEach((input) => {
+        if (multiStepForm[input.name]) checkEmpty = false;
+        else checkEmpty = true;
+      })
+      if (checkEmpty) {
+        showError();
+        return;
+      }
+      dispatch(formScreenHandler());
+    },
+    showError = () => alert("Fill all fields");
 
   return (
     <div className="flex-col-center">
@@ -23,7 +36,7 @@ const InputScreen: React.FC<onboardingQuestion> = ({ heading, note, inputs, ctaT
           })
         }
       </div>
-      <Button text={ctaText} action={() => dispatch(formScreenHandler())} />
+      <Button text={ctaText} action={handleSubmit} />
     </div>
   )
 }

@@ -24,7 +24,7 @@ const MultiStepForm: React.FC<MultiStepFormProps> = ({ formData }) => {
         <div className="multi-step-form">
             <div className="progress-bar">
                 {
-                    new Array(formData.length + 1).fill(0).map((_, i) => <div className="step-box">
+                    new Array(formData.length + 1).fill(0).map((_, i) => <div key={`step-${i + 1}`} className="step-box">
                         <div className="step" style={i.toString() <= multiStepForm.step ? { background: '#664de5', color: 'white', borderColor: '#664de5' } : {}}>{i + 1}</div>
                         <div className="bar" >
                             <div style={
