@@ -12,6 +12,7 @@ const InputScreen: React.FC<onboardingQuestion> = ({ heading, note, inputs, ctaT
     handleSubmit = () => {
       let checkEmpty = true;
       inputs?.forEach((input) => {
+        if (!input.required) return;
         if (multiStepForm[input.name]) checkEmpty = false;
         else checkEmpty = true;
       })
@@ -21,7 +22,7 @@ const InputScreen: React.FC<onboardingQuestion> = ({ heading, note, inputs, ctaT
       }
       dispatch(formScreenHandler());
     },
-    showError = () => alert("Fill all fields");
+    showError = () => alert("Fill require fields");
 
   return (
     <div className="flex-col-center">

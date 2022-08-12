@@ -5,7 +5,7 @@ import { formValueUpdater } from "../../redux/multiStepFormSlice";
 const InputBox: React.FC<InputBoxType> = ({ name, type = "text", value, handleChange, label, required = false }) => {
     return (
         <label className="flex flex-col">
-            {label && label}
+            {label && label} {required && '*'}
             <input
                 type={type}
                 name={name}
