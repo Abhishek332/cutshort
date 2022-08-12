@@ -1,4 +1,4 @@
-* This is a Multi Step Form build in React. You can visit it ["here"][1].
+* This is a Multi Step Form build in React. You can visit it on https://cutshort-test.netlify.app 
 * It have feature to automatic update based on inputData.
 * You just have to go in src/data/formData.ts to add any new screen in it.
 * It have two types of screens 
@@ -87,11 +87,4 @@ Redux intial State -
  workspaceName : '',
  workspaceUrl : '',
  planToUse : ''   
-}
-
-
-
-
-
-
-[1] : https://cutshort-test.netlify.app 
+} 
