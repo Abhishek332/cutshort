@@ -1,36 +1,72 @@
 @import "../../index.scss";
 
 .multi-step-form {
-  height: 300px;
-  @include flexCenter(end, center, column);
-  & > div {
-    height: 100%;
-    @include flexCenter(space-between, center, column);
-  }
-  header {
-    text-align: center;
-    & > *::first-letter {
-      text-transform: capitalize;
+  .form {
+    height: 300px;
+    @include flexCenter(end, center, column);
+    & > div {
+      height: 100%;
+      @include flexCenter(space-between, center, column);
     }
-    h2 {
-      margin: 11px 0;
+    header {
+      text-align: center;
+      & > *::first-letter {
+        text-transform: capitalize;
+      }
+      h2 {
+        margin: 11px 0;
+        @media (max-width: 400px) {
+          width: 85%;
+          margin: auto;
+        }
+      }
+      p {
+        font-size: 12px;
+        font-weight: medium;
+        color: $secondary;
+      }
     }
-    p {
-      font-size: 12px;
-      font-weight: medium;
-      color: $secondary;
-    }
-  }
 
-  .options-container {
+    .options-container {
+      @include flexCenter(center, center, row);
+    }
+
+    .success {
+      height: 220px;
+
+      img {
+        height: 60px;
+      }
+    }
+  }
+  .progress-bar {
     @include flexCenter(center, center, row);
-  }
+    margin: 50px 0 30px;
+    position: relative;
 
-  .success {
-    height: 220px;
-
-    img {
-      height: 60px;
+    .step-box {
+      @include flexCenter(center, center, row);
+      .step {
+        @include flexCenter(center, center, row);
+        height: 30px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        border: 1px solid $border;
+        color: $black;
+        font-size: 11px;
+      }
+      .bar {
+        height: 1px;
+        width: 50px;
+        background-color: $border;
+        div {
+          background-color: #664de5;
+          height: 100%;
+        }
+      }
+      &:last-child .bar {
+        display: none;
+      }
     }
   }
 }
